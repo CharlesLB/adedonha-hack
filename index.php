@@ -8,15 +8,35 @@ use CoffeeCode\Router\Router;
 
 $route = new Router(ROOT);
 
+$route->namespace("Source\Controllers");
+
 //
 // ─── WEB ────────────────────────────────────────────────────────────────────────
 //
 
-$route->namespace("Source\Controllers");
+
 $route->group(null);
-$route->get("/","CategoryController:home", "category.home");
+$route->get("/", "Web:home", "web.home");
+$route->get("/app", "Web:app", "web.app");
+$route->post("/show-word", "WordController:show", "word.show");
+
+
+//
+// ─── ADMIN ──────────────────────────────────────────────────────────────────────
+//
+
+    
+$route->group("/admin");
+$route->get("/", "Web:home", "web.home");
+
+$route->get("/categoria","Web:category", "web.category");
 $route->post("/create-category", "CategoryController:create", "category.create");
 $route->post("/delete-category", "CategoryController:delete", "category.delete");
+
+$route->get("/palavra", "Web:word", "web.word");
+$route->post("/create-word", "WordController:create", "word.create");
+$route->post("/delete-word", "WordController:delete", "word.delete");
+
 
 //
 // ─── ERROR ──────────────────────────────────────────────────────────────────────

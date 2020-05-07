@@ -1,4 +1,4 @@
-<?php $v->layout('web/theme'); ?>
+<?php $v->layout('web/_theme'); ?>
 
 <div class="words">
     

@@ -27,13 +27,36 @@ class CategoryController
 
     public function create(array $data): void
     {
-        $callback["data"] = $data;
-        echo json_encode($data);
+        $categoryData = filter_var_array($data, FILTER_SANITIZE_STRING);
+
+        if (in_array("", $categoryData)){
+            $callback["message"] = message("Informe o nome da categoria a ser cadastrada", "error");
+            echo json_encode($callback);
+            return;
+        }
+
+        $category = new Category();
+        $category->name = $categoryData["name"];
+        $category->save();
+
+        $callback["category"]= $this->view->render("admin/fragments/category", ["category" => $category]);
+        $callback["message"] = message("Categoria cadastrada com sucesso!", "success");
+        echo json_encode($callback);
     }
 
     public function delete(array $data): void
     {
-        $callback["data"] = $data;
-        echo json_encode($data);
+        if (empty($data["id"])){
+            return;
+        }
+
+        $id = filter_var($data["id"], FILTER_VALIDATE_INT);
+        $category = (new Category())->findById($id);
+        if($category){
+            $category->destroy();
+        }
+
+        $callback["remove"] = true;
+        echo json_encode($callback);
     }
 }

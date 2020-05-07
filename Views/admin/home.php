@@ -1,4 +1,4 @@
-<?php $v->layout("admin/theme"); ?>
+<?php $v->layout("admin/_theme"); ?>
 
 <div class="create">
     <div class="form_ajax" style="display: none"></div>
