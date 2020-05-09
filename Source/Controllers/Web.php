@@ -35,13 +35,22 @@ class Web
     // ─── ADMIN ──────────────────────────────────────────────────────────────────────
     //
 
-        
-    public function category(): void
+    public function admin(): void
     {
         $categories = (new Category())->find()->order("name")->fetch(true);
 
-        echo $this->view->render("admin/category", [
-            "title" => "Categoria | " . SITE,
+        echo $this->view->render("admin/home", [
+            "title" => "Home | " . SITE,
+            "categories" => $categories
+        ]);
+    }
+
+    public function word(): void
+    {
+        $categories = (new Category())->find()->order("name")->fetch(true);
+
+        echo $this->view->render("admin/word", [
+            "title" => "Palavras | " . SITE,
             "categories" => $categories
         ]);
     }

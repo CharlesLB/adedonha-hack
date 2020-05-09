@@ -1,6 +1,6 @@
 <?php
 
-define("ROOT", "https://www.localhost/adedonha-hack/");
+define("ROOT", "https://www.localhost/adedonha-hack");
 
 define("SITE", "Adedonha Hack");
 

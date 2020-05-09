@@ -15,14 +15,14 @@ class WordController
         $this->view->addData(["router" => $router]);
     }
 
-    public function home(): void
+    public function show(array $data): void
     {
-        $categories = (new Category())->find()->order("name")->fetch(true);
+        $category = $this->prepareToShow($data);
+        
+        $callback["wordForm"] = $this->view->render("admin/fragments/wordForm", ["category" => $category]);
+        $callback["wordList"] = $this->view->render("admin/fragments/wordList", ["category" => $category]);
 
-        echo $this->view->render("admin/home", [
-            "title" => "Home | " . SITE,
-            "categories" => $categories
-        ]);
+        echo json_encode([$category->data()->name, $category->data()->id]);
     }
 
     public function create(array $data): void
@@ -35,5 +35,22 @@ class WordController
     {
         $callback["data"] = $data;
         echo json_encode($data);
+    }
+
+    //
+    // ─── PRIVATES FUNCTIONS ─────────────────────────────────────────────────────────
+    //
+
+    private function prepareToShow(array $data): object
+    {
+        $categoryData = filter_var_array($data, FILTER_SANITIZE_STRING);
+        
+        $category = new Category();
+        $category->name = $categoryData["category"];
+
+        $search = $category->find("name = :name", "name={$category->name}")->fetch();
+        $category->id = $search->data()->id;
+
+        return $category;
     }
 }
