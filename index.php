@@ -27,7 +27,7 @@ $route->post("/show-word", "WordController:show", "word.show");
 
     
 $route->group("/admin");
-$route->get("/", "Web:home", "web.home");
+$route->get("/", "Web:admin", "web.admin");
 
 $route->get("/categoria","Web:category", "web.category");
 $route->post("/create-category", "CategoryController:create", "category.create");
@@ -36,6 +36,8 @@ $route->post("/delete-category", "CategoryController:delete", "category.delete")
 $route->get("/palavra", "Web:word", "web.word");
 $route->post("/create-word", "WordController:create", "word.create");
 $route->post("/delete-word", "WordController:delete", "word.delete");
+$route->post("/show-word", "WordController:show", "word.show");
+
 
 
 //
