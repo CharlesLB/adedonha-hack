@@ -2,23 +2,24 @@
 
 <div class="create">
     <div class="form_ajax" style="display: none"></div>
-    <form class="form" name="gallery" action="<?= $router->route("category.create"); ?>" method="post" enctype="multipart/form-data">
-        <label>
-            <input type="text" name="name" placeholder="Nome da categoria:" />
-        </label>
-        <button>Cadastrar Categoria</button>
-    </form>
+    <label>
+        <div class="div-select">
+            <select name="categories">
+                <option value="" selected disabled>Escolha a categoria</option>
+                <?php
+                if (!empty($categories)) :
+                    foreach ($categories as $category) : ?>
+                        <option value="<?= "{$category->name}" ?>"><?= "{$category->name}" ?></option>
+                <?php endforeach;
+                endif;
+                ?>
+            </select>
+        </div>
+    </label>
+    <div class="formSpace"></div>
 </div>
 
-<section class="categories">
-    <?php
-    if (!empty($categories)) :
-        foreach ($categories as $category) :
-            $v->insert("admin/fragments/category", ["category" => $category]);
-        endforeach;
-    endif;
-    ?>
-</section>
+<div class="listSpace"></div>
 
 <?php $v->start("js"); ?>
 <script>
@@ -32,6 +33,29 @@
             }
         }
 
+        $("select").change(function(){
+            var select = $(this);
+            var formSpace = $(".formSpace");
+            var words = $(".words");
+            var category = select.val();
+            console.log(category)
+
+            $.ajax({
+                url: "<?= $router->route("word.show"); ?>",
+                data:{category:category},
+                type: "POST",
+                dataType: "json",
+                beforeSend: function(){
+                    load("open");
+                },
+                success: function(callback){
+                    if (callback.word) {
+                        words.prepend(callback.word);
+                    }
+                }
+            });
+        });
+
         $("form").submit(function(e) {
             e.preventDefault();
             var form = $(this);
@@ -43,14 +67,14 @@
                 data: form.serialize(),
                 type: "POST",
                 dataType: "json",
-                beforeSend: function(){
+                beforeSend: function() {
                     load("open");
-                },  
-                success: function (callback){
-                    if(callback.message){
+                },
+                success: function(callback) {
+                    if (callback.message) {
                         form_ajax.html(callback.message).fadeIn();
-                    }else{
-                        form_ajax.fadeOut(function(){
+                    } else {
+                        form_ajax.fadeOut(function() {
                             $(this).html("");
                         });
                     }
@@ -59,7 +83,7 @@
                         categories.prepend(callback.category);
                     }
                 },
-                complete: function(){
+                complete: function() {
                     load("close");
                 }
             });
@@ -70,9 +94,9 @@
             var data = $(this).data();
             var div = $(this).parent();
 
-            $.post(data.action, data, function(){
+            $.post(data.action, data, function() {
                 div.fadeOut();
-            },"json").fail(function(){
+            }, "json").fail(function() {
                 alert("Erro ao processar requisição!");
             });
         });
