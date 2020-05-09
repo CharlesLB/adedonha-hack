@@ -24,8 +24,8 @@ class Web
     {
         $categories = (new Category())->find()->order("name")->fetch(true);
 
-        echo $this->view->render("admin/home", [
-            "title" => "Home | " . SITE,
+        echo $this->view->render("web/home", [
+            "title" => SITE,
             "categories" => $categories
         ]);
     }
