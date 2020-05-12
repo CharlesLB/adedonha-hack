@@ -8,7 +8,7 @@
 
             <a href="#start">Começar a trapacear!</a>
         </div>
-        <img id="logo" src="<?= url("Views/web/assets/img/header.svg"); ?>" />
+        <img id="logo" src="<?= url("/Views/web/assets/img/header.svg"); ?>" />
     </div>
 </header>
 

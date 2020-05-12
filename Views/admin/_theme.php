@@ -23,8 +23,8 @@
         <div class="sidebar">
             <header>Adedonha Admin</header>
             <ul>
-                <li><a href="<?= url('admin'); ?>">Categorias</a></li>
-                <li><a href="<?= url('admin/palavra'); ?>">Palavras</a></li>
+                <li><a href="<?= url('/admin'); ?>">Categorias</a></li>
+                <li><a href="<?= url('/admin/palavra'); ?>">Palavras</a></li>
             </ul>
         </div>
 
