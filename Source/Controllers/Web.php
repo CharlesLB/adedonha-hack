@@ -30,6 +30,13 @@ class Web
         ]);
     }
 
+    public function error(array $data): void
+    {
+       echo $this->view->render("web/error", [
+            "title" => "Error | " . $data["errcode"],
+            "error" => $data["errcode"]
+        ]);
+    }
 
     //
     // ─── ADMIN ──────────────────────────────────────────────────────────────────────
@@ -53,10 +60,5 @@ class Web
             "title" => "Palavras | " . SITE,
             "categories" => $categories
         ]);
-    }
-
-    public function error(array $data): void
-    {
-        echo $data["errcode"];
     }
 }
