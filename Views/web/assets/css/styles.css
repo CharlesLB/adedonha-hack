@@ -125,7 +125,7 @@ header .intro .text a:hover{
   height: 450px;
   object-fit: cover;
   width: auto;
-  animation: Fade 1s ease-out;
+  animation: toRight 1s ease-out;
 }
 
 .wave-header{
@@ -168,6 +168,7 @@ header .intro .text a:hover{
   padding: 30px;
   color: #fff;
   text-align: center;
+  animation: Fade 1s ease-out;
 }
 
 #start .container .card h3{
@@ -191,6 +192,7 @@ header .intro .text a:hover{
   color: black;
   margin-top: 10px;
   text-align: left;
+  animation: Fade 1s ease-out;
 }
 
 #start button{
@@ -206,6 +208,7 @@ header .intro .text a:hover{
   text-align: center;
   padding: 20px;
   transition: .2s ease-out;
+  animation: Fade 1s ease-out;
 }
 
 /*
@@ -229,9 +232,6 @@ footer img {
   width: auto;
 }
 
-
-
-
 /*
  * ─── KEYFRAMES ──────────────────────────────────────────────────────────────────
  */
@@ -249,7 +249,7 @@ footer img {
   }
 }
 
-@keyframes Fade{
+@keyframes toRight{
   0%{
     opacity: 0;
     transform: translateX(1000px);
@@ -259,6 +259,16 @@ footer img {
     opacity: 1;
     transform: translate(0);
 
+  }
+}
+
+@keyframes Fade{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
   }
 }
 
