@@ -19,3 +19,8 @@ Um programa PHP para trapacear na adedonha. Basta dizer as categorias da competi
 ### Escolha de categorias
 
 ![escolha de categorias](Images/categories.png)
+
+### Error - configurado
+
+![error](Images/error.png)
+
