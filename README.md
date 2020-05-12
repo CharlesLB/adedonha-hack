@@ -10,4 +10,12 @@ Um programa PHP para trapacear na adedonha. Basta dizer as categorias da competi
     - League\Plates
 3. AJAX
 
+## Imagens
+
+### Interface Inicial 
+
+![interface inicial](Images/interface.png)
    
+### Escolha de categorias
+
+![escolha de categorias](Images/categories.png)
