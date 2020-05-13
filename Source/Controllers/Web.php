@@ -30,6 +30,13 @@ class Web
         ]);
     }
 
+    public function app(): void
+    {
+        echo $this->view->render("web/app", [
+            "title" => "App | " . SITE,
+        ]);
+    }
+
     public function error(array $data): void
     {
        echo $this->view->render("web/error", [
