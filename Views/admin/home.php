@@ -10,7 +10,7 @@
     </form>
 </div>
 
-<section class="categories">
+<section class="categories list">
     <?php
     if (!empty($categories)) :
         foreach ($categories as $category) :
