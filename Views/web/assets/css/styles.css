@@ -56,7 +56,6 @@ ul::-webkit-scrollbar-track{
 
 ul::-webkit-scrollbar-thumb{
   background: var(--secondary-color);
-
 }
 
 .wave{
