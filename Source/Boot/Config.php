@@ -1,8 +1,24 @@
 <?php
 
+//
+// ─── ROUTES ─────────────────────────────────────────────────────────────────────
+//
+
+
 define("ROOT", "https://www.localhost/adedonha-hack");
 
+//
+// ─── SITE ───────────────────────────────────────────────────────────────────────
+//
+
+
 define("SITE", "Adedonha Hack");
+define("GITHUB", "https://github.com/CharlesLB/adedonha-hack");
+
+
+//
+// ─── DATABASE ───────────────────────────────────────────────────────────────────
+//
 
 define("DATA_LAYER_CONFIG", [
     "driver" => "mysql",
