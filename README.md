@@ -29,3 +29,7 @@ Um programa PHP para trapacear na adedonha. Basta dizer as categorias da competi
 
 ![aplicação](Images/app.png)
 
+### Admin Categorias
+
+![aplicação](Images/admincategories.png)
+
