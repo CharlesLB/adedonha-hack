@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $title; ?></title>
 
-    <link rel="stylesheet" href="<?= url("/Views/admin/assets/css/style.css?l2898 "); ?>" />
+    <link rel="stylesheet" href="<?= url("/Views/admin/assets/css/style.css?l6656 "); ?>" />
 </head>
 
 <body>

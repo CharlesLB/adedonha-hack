@@ -452,3 +452,63 @@ footer img {
     transform: rotate(360deg);
   }
 }
+
+
+/*
+ * ─── MEDIA ──────────────────────────────────────────────────────────────────────
+ */
+
+ @media screen and (max-width: 800px) {
+
+  /*
+   * ─── HOME ───────────────────────────────────────────────────────────────────────
+   */
+
+  header .intro .text{
+    margin-top: 500px;
+    width: 100%;
+    text-align: center;
+  }
+
+  img{
+    display: none !important;
+  }
+
+  /*
+   * ─── INVITE ─────────────────────────────────────────────────────────────────────
+   */
+
+  .invite{
+    margin: 100px;
+    text-align: center;
+  }
+
+  /*
+   * ─── CATEGORIES ─────────────────────────────────────────────────────────────────
+   */
+
+  #start .container{
+    flex-direction: column;
+  }
+
+  #start .container .card{
+    width: 90%;
+    margin-top: 30px;
+  }
+
+  /*
+   * ─── APP ────────────────────────────────────────────────────────────────────────
+   */
+
+  .advertisement{
+    display: none;
+  }
+  .app{
+    flex-direction: column;
+    padding: 20px;
+  }
+  .app .right{
+    margin: 20px 0;
+  }
+
+}

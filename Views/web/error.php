@@ -6,7 +6,7 @@
             <h1>Erro <?= $error; ?> </h1>
             <h2>Parece que algo inesperado aconteceu!</h2>
 
-            <a href="<?= url('/'); ?>">Retornar a aplicação</a>
+            <a class="button" href="<?= url('/'); ?>">Retornar a aplicação</a>
         </div>
         <img id="logo" src="<?= url("/Views/web/assets/img/error.svg"); ?>" />
     </div>
