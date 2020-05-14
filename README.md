@@ -34,18 +34,3 @@ Um programa PHP para trapacear na adedonha. Basta dizer as categorias da competi
 ![aplicação](Images/admincategories.png)
 
 
-## Templates Responsivos
-
-### Home
-
-![home](Images/responsive/home.jpg)
-
-### App
-
-![home](Images/responsive/app.png)
-
-### Admin
-
-![home](Images/responsive/admin.png)
-
-
