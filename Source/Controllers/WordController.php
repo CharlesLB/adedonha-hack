@@ -4,6 +4,7 @@ namespace Source\Controllers;
 
 use League\Plates\Engine;
 use Source\Models\Category;
+use Source\Models\Word;
 
 class WordController
 {
@@ -15,20 +16,54 @@ class WordController
         $this->view->addData(["router" => $router]);
     }
 
-    public function show(array $data): void
+    public function show(array $data = null, int $category_id = null,  string $message = null): void
     {
-        $category = $this->prepareToShow($data);
-        
-        $callback["wordForm"] = $this->view->render("admin/fragments/wordForm", ["category" => $category]);
-        $callback["wordList"] = $this->view->render("admin/fragments/wordList", ["category" => $category]);
+        if(!$category_id){
+            $category = new Category();
+            $category = $category->show($data["category_name"]);
+            $category_id = $category->id;
+            $callback["wordForm"] = $this->view->render("admin/fragments/wordForm", ["category_id" => $category_id]);
+        }
 
-        echo json_encode([$category->data()->name, $category->data()->id]);
+        if($message){
+            $callback["message"] = $message;
+        }
+
+        $word = new Word();
+        $words = $word->list($category_id);
+
+        $callback["wordList"] = $this->view->render("admin/fragments/wordList", ["words" => $words ]);
+
+        echo json_encode($callback);
     }
 
     public function create(array $data): void
     {
-        $callback["data"] = $data;
-        echo json_encode($data);
+        $data = filter_var_array($data, FILTER_SANITIZE_STRING);
+
+        $word = new Word();
+        $word->name = $data["name"];
+        $word->id_category = $data["id_category"];
+
+        if (!$word->validate()) {
+            $callback["message"] = message($word->fail()->getMessage(), "error");
+            echo json_encode($callback);
+            return;
+        }
+
+        $word->save();
+
+        $message = message("Palavra " . $word->name . " cadastrada com sucesso!", "success");
+        
+        if($message){
+            $callback["message"] = $message;
+        }
+
+        $words = $word->list($word->id_category);
+
+        $callback["wordList"] = $this->view->render("admin/fragments/wordList", ["words" => $words ]);
+
+        echo json_encode($callback);
     }
 
     public function delete(array $data): void
@@ -37,20 +72,4 @@ class WordController
         echo json_encode($data);
     }
 
-    //
-    // ─── PRIVATES FUNCTIONS ─────────────────────────────────────────────────────────
-    //
-
-    private function prepareToShow(array $data): object
-    {
-        $categoryData = filter_var_array($data, FILTER_SANITIZE_STRING);
-        
-        $category = new Category();
-        $category->name = $categoryData["category"];
-
-        $search = $category->find("name = :name", "name={$category->name}")->fetch();
-        $category->id = $search->data()->id;
-
-        return $category;
-    }
 }

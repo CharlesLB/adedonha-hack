@@ -59,8 +59,4 @@ class CategoryController
         $callback["remove"] = true;
         echo json_encode($callback);
     }
-
-    public function show(){
-        
-    }
 }
