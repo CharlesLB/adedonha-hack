@@ -1,50 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic);
 
 /*
  * ─── GENERAL ────────────────────────────────────────────────────────────────────
  */
-
-:root {
-  --font-family: "Open Sans";
-  --primary-color: #e100ff;
-  --secondary-color: #7f00ff;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
-  font: 400 14px var(--font-family), sans-serif !important;
-  -webkit-font-smoothing: antialiased !important;
-}
-
-input,
-button,
-textarea {
-  font: 400 14px var(--font-family), sans-serif;
-}
-
-button,
-input[type="submit"] {
-  cursor: pointer;
-}
-
-body::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-body::-webkit-scrollbar-track {
-  background: #fff;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: var(--secondary-color);
-}
 
 ul::-webkit-scrollbar{
   width: 0.1rem;

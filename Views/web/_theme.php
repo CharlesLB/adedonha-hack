@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= url("/Views/web/assets/css/styles.css?65651664"); ?>" />
+    <link rel="stylesheet" href="<?= url("/Views/web/assets/css/styles.css?6"); ?>" />
+    <link rel="stylesheet" href="<?= url("/shared/css/globals.css"); ?>">
+    <link rel="icon" href="<?= url("/shared/img/icon.ico") ?> " type="image/x-icon" />
     <title><?= $title; ?></title>
 </head>
 
@@ -29,7 +31,7 @@
     ─── SCRIPTS ────────────────────────────────────────────────────────────────────
     -->
 
-    <script src="<?= url("/Views/web/assets/js/jquery.js"); ?>"></script>
+    <script src="<?= url("/shared/js/jquery.js"); ?>"></script>
     <?= $v->section("js"); ?>
 </body>
 
