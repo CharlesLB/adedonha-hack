@@ -28,7 +28,7 @@ function message(string $message, string $type): string
 
 function verifyWords(array $words, string $letter){
     foreach ($words as $word){
-        if( strpos($word,0,1) == $letter){
+        if( substr($word->name,0,1) == $letter){
             return true;
         }
     }
