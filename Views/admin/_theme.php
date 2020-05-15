@@ -8,7 +8,7 @@
     <link rel="icon" href="<?= url("/shared/img/icon.ico") ?> " type="image/x-icon" />
     <title><?= $title; ?></title>
 
-    <link rel="stylesheet" href="<?= url("/Views/admin/assets/css/style.css?l6656 "); ?>" />
+    <link rel="stylesheet" href="<?= url("/Views/admin/assets/css/style.css?l45"); ?>" />
     <link rel="stylesheet" href="<?= url("/shared/css/globals.css"); ?>">
 
 </head>

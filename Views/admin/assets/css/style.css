@@ -192,6 +192,10 @@ select option:not(:checked) {
     font-size: 1em;
 }
 
+.form .id_category{
+    display: none !important;
+}
+
 button {
     margin-top: 10px;
     display: block;
@@ -216,6 +220,12 @@ button:hover {
 main .list{
     padding: 20px;
     padding-top: 0;
+}
+
+main .letter{
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .items {

@@ -19,7 +19,7 @@
     <div class="formSpace"></div>
 </div>
 
-<div class="listSpace"></div>
+<div class="listSpace list"></div>
 
 <?php $v->start("js"); ?>
 <script>
@@ -33,56 +33,35 @@
             }
         }
 
-        $("select").change(function(){
+        $("select").change(function() {
             var select = $(this);
             var formSpace = $(".formSpace");
-            var words = $(".words");
+            var list = $(".listSpace");
             var category = select.val();
-            console.log(category)
 
             $.ajax({
                 url: "<?= $router->route("word.show"); ?>",
-                data:{category:category},
-                type: "POST",
-                dataType: "json",
-                beforeSend: function(){
-                    load("open");
+                data: {
+                    category_name: category
                 },
-                success: function(callback){
-                    if (callback.word) {
-                        words.prepend(callback.word);
-                    }
-                }
-            });
-        });
-
-        $("form").submit(function(e) {
-            e.preventDefault();
-            var form = $(this);
-            var form_ajax = $(".form_ajax");
-            var categories = $(".categories");
-
-            $.ajax({
-                url: form.attr("action"),
-                data: form.serialize(),
                 type: "POST",
                 dataType: "json",
                 beforeSend: function() {
                     load("open");
                 },
                 success: function(callback) {
-                    if (callback.message) {
-                        form_ajax.html(callback.message).fadeIn();
-                    } else {
-                        form_ajax.fadeOut(function() {
-                            $(this).html("");
-                        });
+                    list.html("");
+                    formSpace.html("");
+
+                    if (callback.wordList) {
+                        list.prepend(callback.wordList);
                     }
 
-                    if (callback.category) {
-                        categories.prepend(callback.category);
+                    if (callback.wordForm) {
+                        formSpace.prepend(callback.wordForm);
                     }
                 },
+
                 complete: function() {
                     load("close");
                 }
