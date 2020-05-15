@@ -27,4 +27,14 @@ class Category extends DataLayer
             
         return true;
     }
+
+    public function show(string $name): object
+    {
+        $search = $this->find("name = :name", "name={$name}")->fetch();
+
+        $this->name = $name;
+        $this->id = $search->data()->id;
+
+        return $this;
+    }
 }
