@@ -42,7 +42,7 @@ class WordController
         $data = filter_var_array($data, FILTER_SANITIZE_STRING);
 
         $word = new Word();
-        $word->name = $data["name"];
+        $word->name = ucfirst($data["name"]);
         $word->id_category = $data["id_category"];
 
         if (!$word->validate()) {
@@ -68,8 +68,18 @@ class WordController
 
     public function delete(array $data): void
     {
-        $callback["data"] = $data;
-        echo json_encode($data);
+        if (empty($data["id"])) {
+            return;
+        }
+
+        $id = filter_var($data["id"], FILTER_VALIDATE_INT);
+        $word = (new Word())->findById($id);
+        if ($word) {
+            $word->destroy();
+        }
+
+        $callback["remove"] = true;
+        echo json_encode($callback);
     }
 
 }

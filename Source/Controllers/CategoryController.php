@@ -30,7 +30,7 @@ class CategoryController
         $categoryData = filter_var_array($data, FILTER_SANITIZE_STRING);
 
         $category = new Category();
-        $category->name = $categoryData["name"];
+        $category->name = ucfirst($categoryData["name"]);
 
         if (!$category->validate()) {
             $callback["message"] = message($category->fail()->getMessage(), "error");
