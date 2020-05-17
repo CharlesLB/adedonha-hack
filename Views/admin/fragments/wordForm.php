@@ -1,6 +1,6 @@
 <form class="form" name="words" action="<?= $router->route("word.create"); ?>" method="post" enctype="multipart/form-data">
     <label>
-        <input type="text" name="name" placeholder="Palavra desejada" data-id-category="<?= $category_id?>" />
+        <input type="text" name="name" class="word-input" placeholder="Palavra desejada" data-id-category="<?= $category_id?>" />
     </label>
         <input class="id_category" type="number" name="id_category" value ="<?= $category_id ;?>"/>
     <button>Cadastrar Palavra</button>
@@ -22,6 +22,7 @@
             var form = $(this);
             var form_ajax = $(".form_ajax");
             var list = $(".listSpace");
+            var input = $(".word-input");
 
             $.ajax({
                 url: form.attr("action"),
@@ -41,6 +42,7 @@
                     }
 
                     list.html("");
+                    input.val("");
 
                     if (callback.wordList) {
                         list.prepend(callback.wordList);
