@@ -33,29 +33,31 @@
     </div>
 </div>
 <section id="start">
-    <div class="container">
-        <div class=" card left">
-            <h3>Categorias disponíveis</h3>
-            <ul>
-                <?php
-                for ($i = 0; $i < 7; $i++) :
-                    $v->insert("web/fragments/category");
-                endfor;
-                ?>
-            </ul>
+    <form name="gallery" action="<?= $router->route("web.app"); ?>" method="get" enctype="multipart/form-data">
+        <div class="container">
+            <div class=" card left">
+                <h3>Categorias disponíveis</h3>
+                <ul>
+                    <?php
+                    foreach($categories as $category):            
+                        $v->insert("web/fragments/category", ["category" => $category]);
+                    endforeach;
+                    ?>
+                </ul>
+            </div>
+            <div class="card right">
+                <h3>Categorias selecionadas</h3>
+                <ul>
+                    <?php
+                    for ($i = 0; $i < 4; $i++) :
+                        echo "teste <br>";
+                    endfor;
+                    ?>
+                </ul>
+            </div>
         </div>
-        <div class="card right">
-            <h3>Categorias selecionadas</h3>
-            <ul>
-                <?php
-                for ($i = 0; $i < 4; $i++) :
-                    $v->insert("web/fragments/category");
-                endfor;
-                ?>
-            </ul>
-        </div>
-    </div>
-    <button class="button">Começar</button>
+        <button class="button">Começar</button>
+    </form>
 </section>
 
 <footer>
