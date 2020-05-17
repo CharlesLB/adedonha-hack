@@ -42,10 +42,7 @@
                 url: form.attr("action"),
                 data: form.serialize(),
                 type: "POST",
-                dataType: "json",
-                beforeSend: function(){
-                    load("open");
-                },  
+                dataType: "json",  
                 success: function (callback){
                     if(callback.message){
                         form_ajax.html(callback.message).fadeIn();
@@ -58,9 +55,6 @@
                     if (callback.category) {
                         categories.prepend(callback.category);
                     }
-                },
-                complete: function(){
-                    load("close");
                 }
             });
         });

@@ -24,15 +24,6 @@
 <?php $v->start("js"); ?>
 <script>
     $(function() {
-        function load(action) {
-            var load_div = $(".ajax_load");
-            if (action === "open") {
-                load_div.fadeIn().css("display", "flex");
-            } else {
-                load_div.fadeOut();
-            }
-        }
-
         $("select").change(function() {
             var select = $(this);
             var formSpace = $(".formSpace");
@@ -46,9 +37,7 @@
                 },
                 type: "POST",
                 dataType: "json",
-                beforeSend: function() {
-                    load("open");
-                },
+
                 success: function(callback) {
                     list.html("");
                     formSpace.html("");
@@ -60,10 +49,6 @@
                     if (callback.wordForm) {
                         formSpace.prepend(callback.wordForm);
                     }
-                },
-
-                complete: function() {
-                    load("close");
                 }
             });
         });

@@ -14,14 +14,6 @@
 </head>
 
 <body>
-
-    <div class="ajax_load">
-        <div class="ajax_load_box">
-            <div class="ajax_load_box_circle"></div>
-            <div class="ajax_load_box_title">Aguarde, carregando!</div>
-        </div>
-    </div>
-
     <div class="container">
         <div class="sidebar">
             <header>Adedonha Admin</header>
