@@ -2,7 +2,7 @@
 
 <div class="app">
     <div class="left">
-        <form action="">
+        <form name="gallery" action="<?= $router->route("match.search"); ?>" method="post" enctype="multipart/form-data">
             <input type="text" placeholder="Letra" maxlength="1">
             <button>Buscar</button>
         </form>
@@ -19,15 +19,8 @@
     <div class="right">
         <table>
             <tr>
-                <th>Categoria</th>
-                <th>Resposta</th>
+                <td colspan=2 >Nenhuma letra foi selecionada</td> 
             </tr>
-
-            <?php 
-            for ($i=0; $i < 12; $i++):
-                $v->insert("web/fragments/appAnswer");
-            endfor; 
-            ?>
         </table>
     </div>
 </div>
@@ -37,3 +30,45 @@
         <img src="<?= url("/Views/web/assets/img/github.png"); ?>" className="rounded mx-auto d-block" alt="Imagem do produto" />
     </a>
 </footer>
+
+<?php $v->start("js"); ?>
+<script>
+    $(function() {
+        function load(action) {
+            var load_div = $(".ajax_load");
+            if (action === "open") {
+                load_div.fadeIn().css("display", "flex");
+            } else {
+                load_div.fadeOut();
+            }
+        }
+
+        $("form").submit(function(e) {
+            e.preventDefault();
+            var form = $(this);
+            var form_ajax = $(".form_ajax");
+            var categories = $(".categories");
+
+            $.ajax({
+                url: form.attr("action"),
+                data: form.serialize(), categories:<?= $categories ?>,
+                type: "POST",
+                dataType: "json",  
+                success: function (callback){
+                    if(callback.message){
+                        form_ajax.html(callback.message).fadeIn();
+                    }else{
+                        form_ajax.fadeOut(function(){
+                            $(this).html("");
+                        });
+                    }
+
+                    if (callback.category) {
+                        categories.prepend(callback.category);
+                    }
+                }
+            });
+        });
+    });
+</script>
+<?php $v->end(); ?>

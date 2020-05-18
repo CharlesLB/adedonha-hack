@@ -33,10 +33,10 @@
     </div>
 </div>
 <section id="start">
-    <form name="gallery" action="<?= $router->route("web.app"); ?>" method="get" enctype="multipart/form-data">
+    <form name="gallery" action="<?= $router->route("match.start"); ?>" method="post" enctype="multipart/form-data">
         <div class="container">
-            <div class=" card left">
-                <h3>Categorias disponíveis</h3>
+            <div class=" card">
+                <h3>Categorias</h3>
                 <ul>
                     <?php
                     foreach($categories as $category):            
@@ -45,18 +45,8 @@
                     ?>
                 </ul>
             </div>
-            <div class="card right">
-                <h3>Categorias selecionadas</h3>
-                <ul>
-                    <?php
-                    for ($i = 0; $i < 4; $i++) :
-                        echo "teste <br>";
-                    endfor;
-                    ?>
-                </ul>
-            </div>
         </div>
-        <button class="button">Começar</button>
+        <button type="submit" class="button">Começar</button>
     </form>
 </section>
 
