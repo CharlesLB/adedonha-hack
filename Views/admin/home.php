@@ -4,7 +4,7 @@
     <div class="form_ajax" style="display: none"></div>
     <form class="form" name="gallery" action="<?= $router->route("category.create"); ?>" method="post" enctype="multipart/form-data">
         <label>
-            <input type="text" name="name" placeholder="Nome da categoria:" />
+            <input class="input" type="text" name="name" placeholder="Nome da categoria:" />
         </label>
         <button>Cadastrar Categoria</button>
     </form>
@@ -23,15 +23,6 @@
 <?php $v->start("js"); ?>
 <script>
     $(function() {
-        function load(action) {
-            var load_div = $(".ajax_load");
-            if (action === "open") {
-                load_div.fadeIn().css("display", "flex");
-            } else {
-                load_div.fadeOut();
-            }
-        }
-
         $("form").submit(function(e) {
             e.preventDefault();
             var form = $(this);
@@ -51,6 +42,8 @@
                             $(this).html("");
                         });
                     }
+
+                    $(".input").val("");
 
                     if (callback.category) {
                         categories.prepend(callback.category);
