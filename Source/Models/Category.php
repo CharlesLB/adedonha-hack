@@ -12,6 +12,16 @@ class Category extends DataLayer
         parent::__construct("categories", ["name"]);
     }
 
+    public function matchValidade(){
+        $categoryByName = $this->find("name = :name", "name={$this->name}")->count();
+        if(!$categoryByName){
+            $this->fail = new Exception("Categoria {$this->name} ainda não foi cadastrada!");
+            return false;
+        }
+            
+        return true;
+    }
+
     public function validate(): bool
     {
         if (empty($this->name)){
