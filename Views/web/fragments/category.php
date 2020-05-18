@@ -1,6 +1,6 @@
 <label for="<?= $category->name ?>">
     <li>
-        <input id="<?= $category->name ?>" value="<?= $category->id ?>" type="checkbox">
+        <input class="checkbox" id="<?= $category->name ?>" value="<?= $category->name ?>" name="category[]" type="checkbox">
         <?= $category->name ?>
     </li>
 </label>
