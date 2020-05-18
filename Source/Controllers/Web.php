@@ -27,14 +27,7 @@ class Web
         echo $this->view->render("web/home", [
             "title" => SITE,
             "categories" => $categories
-        ]);
-    }
-
-    public function app(): void
-    {
-        echo $this->view->render("web/app", [
-            "title" => "App | " . SITE,
-        ]);
+            ]);
     }
 
     public function error(array $data): void
