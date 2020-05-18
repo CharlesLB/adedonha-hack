@@ -3,16 +3,16 @@
  * ─── GENERAL ────────────────────────────────────────────────────────────────────
  */
 
-ul::-webkit-scrollbar{
-  width: 0.1rem;
+.categories::-webkit-scrollbar{
+  width: 0.4rem;
 }
 
-ul::-webkit-scrollbar-track{
+.categories::-webkit-scrollbar-track{
   background: #fff;
 }
 
-ul::-webkit-scrollbar-thumb{
-  background: var(--secondary-color);
+.categories::-webkit-scrollbar-thumb{
+  background: var(--primary-color);
 }
 
 .wave{
@@ -93,116 +93,6 @@ header .intro .text h2{
 }
 
 /*
- * ─── INVITE ─────────────────────────────────────────────────────────────────────
- */
-
-.invite{
-  margin: 50px 0 50px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: white;
-}
-
-.invite h3{
-  font-weight: 800;
-  font-size: 2rem;
-}
-
-.invite a{
-  margin-top: 10px;
-  border-radius: 10px;
-  background-color:  var(--primary-color);
-  color: white;
-  padding: 10px;
-  text-decoration: none;
-}
-
-/*
- * ─── START ───────────────────────────────────────────────────────────────────
- */
-
-#start{
-  width: 100%;
-  background: var(--secondary-color);
-  background: -webkit-linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-#start .container{
-  margin-top: 50px;
-  width: 95%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-#start form{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#start .container .card{
-  width: 40%;
-  position: relative;
-  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color:#fff;
-  border-radius: 4px;
-  padding: 30px;
-  color: black;
-  text-align: center;
-  animation: Fade 1s ease-out;
-}
-
-#start .container .card h3{
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-#start .container .card ul{
-  scroll-margin-left: 10px;
-  list-style: none;
-  margin-bottom: 20px;
-  overflow-y: scroll;
-  max-height: 400px;
-  min-height: 400px;
-}
-
-#start .container .card li{
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
-  padding: 10px;
-  border-radius: 5px;
-  color: black;
-  margin: 10px;
-  text-align: left;
-  transition: .2s ease-out;
-  animation: Fade 1s ease-out;
-}
-
-#start .container .card li:hover{
-  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-
-#start button{
-  background-color: transparent;
-  font-size: 2rem;
-  padding: 10px;
-  margin-bottom: 70px;
-  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-/*
  * ─── APP ────────────────────────────────────────────────────────────────────────
  */
 
@@ -225,7 +115,14 @@ header .intro .text h2{
 .app .left form{
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  animation: Fade 1s ease-out;
+}
+
+.app .left form .main{
+  width: 100%;
+  display: flex;
 }
 
 .app .left button{
@@ -240,6 +137,7 @@ header .intro .text h2{
   text-align: center;
   padding: 10px;
   transition: .2s ease-out;
+
 }
 
 .app .left button:hover{
@@ -256,18 +154,48 @@ header .intro .text h2{
   text-transform: uppercase;
 }
 
-/*Advertisement*/
+/*categories*/
 
-.app .advertisement{
+.app .left .categories{
+  width: 100%;
+  position: relative;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color:#fff;
+  border-radius: 4px;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  animation: Fade 1s ease-out;
+  list-style: none;
+  overflow-y: scroll;
+  max-height: 500px;
+  min-height: 500px;
   margin-top: 20px;
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: justify;
 }
 
-.app .advertisement h1{
+.app .left .categories h3{
+  font-size: 30px;
   margin-bottom: 10px;
+}
+
+.app .left .categories ul{
+  scroll-margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.app .left .categories li{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  margin: 10px;
+  text-align: left;
+  transition: .2s ease-out;
+  animation: toLeft 1s ease-out;
+}
+
+.app .left .categories li:hover{
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /*Table*/
@@ -280,6 +208,7 @@ header .intro .text h2{
   background-color: #fff;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
+  animation: Fade 1s ease-out;
 }
 
 .app .right table{
@@ -380,26 +309,13 @@ footer img {
     display: none !important;
   }
 
-  /*
-   * ─── INVITE ─────────────────────────────────────────────────────────────────────
-   */
-
-  .invite{
-    margin: 100px;
-    text-align: center;
+  .app .left form{
+    flex-direction: column-reverse;
   }
 
-  /*
-   * ─── CATEGORIES ─────────────────────────────────────────────────────────────────
-   */
-
-  #start .container{
-    flex-direction: column;
-  }
-
-  #start .container .card{
-    width: 90%;
-    margin-top: 30px;
+  .app .left .categories{
+    width: 100%;
+    margin: 30px 0 30px 0;
   }
 
   /*

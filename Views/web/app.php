@@ -3,20 +3,21 @@
 <div class="app">
     <div class="left">
         <form name="gallery" action="<?= $router->route("match.search"); ?>" method="post" enctype="multipart/form-data">
-            <input type="text" placeholder="Letra" maxlength="1">
+        <div class="main">
+            <input class="letter" type="text" placeholder="Letra" name="letter" maxlength="1" required>
             <button>Buscar</button>
+        </div>
+            <div class="categories">
+                <?php
+                foreach ($categories as $category): 
+                    $v->insert("web/fragments/category", ["category" => $category]);
+                endforeach; 
+                ?>
+            </div>
         </form>
-
-        <div class="advertisement">
-            <h1>Anúncio</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolorum corrupti voluptatem voluptatum quasi assumenda ab quod quidem blanditiis, molestias quam qui iusto dolorem nostrum officia magnam praesentium ex. Quo.</p>
-        </div>
-        <div class="advertisement">
-            <h1>Anúncio</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolorum corrupti voluptatem voluptatum quasi assumenda ab quod quidem blanditiis, molestias quam qui iusto dolorem nostrum officia magnam praesentium ex. Quo.</p>
-        </div>
     </div>
     <div class="right">
+        <div class="form_ajax" ></div>
         <table>
             <tr>
                 <td colspan=2 >Nenhuma letra foi selecionada</td> 
@@ -34,37 +35,25 @@
 <?php $v->start("js"); ?>
 <script>
     $(function() {
-        function load(action) {
-            var load_div = $(".ajax_load");
-            if (action === "open") {
-                load_div.fadeIn().css("display", "flex");
-            } else {
-                load_div.fadeOut();
-            }
-        }
-
         $("form").submit(function(e) {
             e.preventDefault();
             var form = $(this);
+            var table = $("table");
+            var input = $(".letter");
             var form_ajax = $(".form_ajax");
-            var categories = $(".categories");
 
             $.ajax({
                 url: form.attr("action"),
-                data: form.serialize(), categories:<?= $categories ?>,
+                data: form.serialize(),
                 type: "POST",
                 dataType: "json",  
                 success: function (callback){
                     if(callback.message){
-                        form_ajax.html(callback.message).fadeIn();
+                        form_ajax.text(callback.message);
                     }else{
                         form_ajax.fadeOut(function(){
-                            $(this).html("");
+                            $(this).html("Selecione ao menos uma categoria");
                         });
-                    }
-
-                    if (callback.category) {
-                        categories.prepend(callback.category);
                     }
                 }
             });

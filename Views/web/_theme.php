@@ -19,6 +19,7 @@
     ─── AJAX ────────────────────────────────────────────────────────────────────
     -->
 
+    <!-- This animation is slow and the requisitions is very fast, so I prefer don't use this animation-->
     <div class="ajax_load">
         <div class="ajax_load_box">
             <div class="ajax_load_box_circle"></div>

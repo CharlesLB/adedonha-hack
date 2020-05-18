@@ -19,38 +19,6 @@
 
 
 /*
- * ─── MESSAGE ────────────────────────────────────────────────────────────────────
- */
-
-
-.message {
-    display: block;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #636e72;
-    border-left-width: 50px;
-    border-radius: 4px;
-    color: #636e72;
-    font-size: 1em;
-    font-weight: 100;
-}
-
-.message.info {
-    border-color: var(--color-blue);
-    color: var(--color-blue);
-}
-
-.message.error {
-    border-color: var(--color-red);
-    color: var(--color-red);
-}
-
-.message.success {
-    border-color: var(--color-green);
-    color: var(--color-green);
-}
-
-/*
  * ─── CONTAINER ──────────────────────────────────────────────────────────────────
  */
 
