@@ -19,17 +19,16 @@ class Web
     // ─── WEB ────────────────────────────────────────────────────────────────────────
     //
 
-
     public function home(): void
     {
         $categories = (new Category())->find()->order("name")->fetch(true);
 
-        echo $this->view->render("web/home", [
+        echo $this->view->render("web/app", [
             "title" => SITE,
             "categories" => $categories
-            ]);
+        ]);
     }
-
+    
     public function error(array $data): void
     {
        echo $this->view->render("web/error", [
