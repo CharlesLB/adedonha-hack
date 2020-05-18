@@ -17,7 +17,6 @@ $route->namespace("Source\Controllers");
 
 $route->group(null);
 $route->get("/", "Web:home", "web.home");
-$route->post("/app", "Match:start", "match.start");
 $route->post("/pesquisar", "Match:search", "match.search");
 
 
