@@ -21,7 +21,6 @@ class Match
 
     public function search(array $data): void
     {
-        echo json_encode($data);
         $data = filter_var_array($data, FILTER_SANITIZE_STRING);
 
         if (!$this->validate($data)) {
@@ -34,9 +33,12 @@ class Match
         $categories = $this->findCategories($data["categories"]);
 
         foreach($categories as $category){
-            $answer = $this-answer($letter, $category);
+            $answer = $this->answer($letter, $category);
             $answers[] = $answer;
         }
+
+        $callback["table"] = $this->view->render("web/fragments/table", ["answers" => $answers ]);
+        echo json_encode($callback);
     }
 
     //
@@ -81,6 +83,14 @@ class Match
 
     private function answer(string $letter, object $category): array
     {
+        $word = new Word;
+        $word = $word->findWordToAnswer($letter, $category->id);
         
+        $answer= [
+            "category" => $category->name,
+            "word" => $word
+        ];
+
+        return $answer;
     }
 }
