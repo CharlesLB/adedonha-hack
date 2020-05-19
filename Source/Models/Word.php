@@ -40,6 +40,14 @@ class Word extends DataLayer
         return $search;
     }
 
+    public function destroyByCategory(int $category_id): void
+    {
+        $words = $this->list($category_id);
+        foreach ($words as $word){
+            $word->destroy();
+        }
+    }
+
     public function findWordToAnswer(string $letter, int $category_id): ?string
     {
         $conn = Connect::getInstance();
