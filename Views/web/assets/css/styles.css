@@ -104,7 +104,7 @@ header .intro .text h2{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 100px;
+  padding: 70px;
   width: 100%;
 }
 
@@ -227,6 +227,11 @@ header .intro .text h2{
 .app .right table td{
   padding: 10px;
   font-weight: 100;
+  width: 50%;
+}
+
+.app .painel{
+  width: 100%;
 }
 
 /*
@@ -332,5 +337,4 @@ footer img {
   .app .right{
     margin: 20px 0;
   }
-
 }

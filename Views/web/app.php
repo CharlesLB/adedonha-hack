@@ -15,6 +15,8 @@
                 ?>
             </div>
         </form>
+
+        <a href="<?= $router->route("web.admin"); ?>" class="button painel" > Adicionar mais palavras </a>
     </div>
     <div class="right">
         <div class="form_ajax" ></div>
