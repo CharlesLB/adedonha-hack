@@ -23,10 +23,11 @@ Um programa PHP para trapacear na adedonha. Basta dizer as categorias da competi
 
 ![aplicação](Images/admincategories.png)
 
+
+### Admin Categorias
+
+![aplicação](Images/words.png)
+
 ### Error - configurado
 
 ![error](Images/error.png)
-
-
-
-
