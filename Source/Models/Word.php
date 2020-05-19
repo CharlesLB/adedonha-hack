@@ -2,6 +2,7 @@
 
 namespace Source\Models;
 
+use CoffeeCode\DataLayer\Connect;
 use CoffeeCode\DataLayer\DataLayer;
 use Exception;
 
@@ -37,5 +38,20 @@ class Word extends DataLayer
     {
         $search = $this->find("id_category = :id_category", "id_category={$id}")->fetch(true);
         return $search;
+    }
+
+    public function findWordToAnswer(string $letter, int $category_id): ?string
+    {
+        $conn = Connect::getInstance();
+        $query = $conn->query("SELECT name FROM words WHERE SUBSTR(name,1,1) = '$letter' AND id_category = '$category_id'");
+        $word = $query->fetch();
+
+        if ($word) {
+            $word = $word->name;
+        }else{
+            $word = "Nenhuma palavra encontrada";
+        }
+
+        return $word;
     }
 }
