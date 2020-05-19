@@ -4,6 +4,7 @@ namespace Source\Controllers;
 
 use League\Plates\Engine;
 use Source\Models\Category;
+use Source\Models\Word;
 
 class CategoryController
 {
@@ -46,17 +47,31 @@ class CategoryController
 
     public function delete(array $data): void
     {
+        $id = filter_var($data["id"], FILTER_VALIDATE_INT);
+
         if (empty($data["id"])) {
             return;
         }
+        
+        $this->destroyWordsOfThisCategory($data["id"]);
 
-        $id = filter_var($data["id"], FILTER_VALIDATE_INT);
         $category = (new Category())->findById($id);
+
         if ($category) {
             $category->destroy();
         }
 
         $callback["remove"] = true;
         echo json_encode($callback);
+    }
+
+    //
+    // ─── PRIVATE FUNCTIONS ──────────────────────────────────────────────────────────
+    //
+
+    private function destroyWordsOfThisCategory(int $id): void
+    {
+        $word = new Word;
+        $word->destroyByCategory($id);
     }
 }
