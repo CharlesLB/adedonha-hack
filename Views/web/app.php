@@ -20,7 +20,7 @@
         <div class="form_ajax" ></div>
         <table>
             <tr>
-                <td colspan=2 >Nenhuma letra foi selecionada</td> 
+                <td colspan=2 >Nenhuma letra ou categoria foi foi selecionada</td> 
             </tr>
         </table>
     </div>
@@ -54,6 +54,11 @@
                         form_ajax.fadeOut(function(){
                             $(this).html("Selecione ao menos uma categoria");
                         });
+                    }
+
+                    if(callback.table){
+                        table.html("");
+                        table.prepend(callback.table);
                     }
                 }
             });
