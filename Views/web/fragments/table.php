@@ -5,7 +5,7 @@
 
 <?php foreach ($answers as $answer): ?>
     <tr>
-        <td>$answer->category</td>
-        <td>$answer->word</td>
+        <td><?= $answer["category"] ?></td>
+        <td><?= $answer["word"] ?></td>
     </tr>
 <?php endforeach; ?>
