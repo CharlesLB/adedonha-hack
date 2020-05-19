@@ -20,6 +20,7 @@
             <ul>
                 <li><a href="<?= url('/admin'); ?>">Categorias</a></li>
                 <li><a href="<?= url('/admin/palavra'); ?>">Palavras</a></li>
+                <li><a href="<?= url('/'); ?>">Trapacear</a></li>
             </ul>
         </div>
 
