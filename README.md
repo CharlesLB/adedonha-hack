@@ -9,20 +9,10 @@ Um programa PHP para trapacear na adedonha. Basta dizer as categorias da competi
     - CoffeCode\Routes
     - League\Plates
 3. AJAX
+4. Jquery
+5. HTML/CSS
 
 ## Imagens
-
-### Interface Inicial 
-
-![interface inicial](Images/interface.png)
-   
-### Escolha de categorias
-
-![escolha de categorias](Images/webcategories.png)
-
-### Error - configurado
-
-![error](Images/error.png)
 
 
 ### App
@@ -34,3 +24,10 @@ Um programa PHP para trapacear na adedonha. Basta dizer as categorias da competi
 ![aplicação](Images/admincategories.png)
 
 
+### Admin Categorias
+
+![aplicação](Images/words.png)
+
+### Error - configurado
+
+![error](Images/error.png)
