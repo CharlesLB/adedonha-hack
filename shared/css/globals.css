@@ -4,7 +4,6 @@
  * ─── GENERAL ────────────────────────────────────────────────────────────────────
  */
 
-
 :root {
     --trasition-speed: .4s ease-out;
     --font-family: "Open Sans";
@@ -22,41 +21,42 @@
     outline: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-  }
-  
-  body {
+}
+
+body {
     font: 400 14px var(--font-family), sans-serif !important;
     -webkit-font-smoothing: antialiased !important;
-  }
-  
-  input,
-  button,
-  textarea {
+}
+
+input,
+button,
+textarea {
     font: 400 14px var(--font-family), sans-serif;
-  }
-  
-  button,
-  input[type="submit"] {
+}
+
+button,
+input[type="submit"] {
     cursor: pointer;
-  }
-  
-  body::-webkit-scrollbar {
+}
+
+body::-webkit-scrollbar {
     width: 0.25rem;
-  }
-  
-  body::-webkit-scrollbar-track {
+}
+
+body::-webkit-scrollbar-track {
     background: #fff;
-  }
-  
-  body::-webkit-scrollbar-thumb {
+}
+
+body::-webkit-scrollbar-thumb {
     background: var(--secondary-color);
-  }
+}
+
 
 /*
  * ─── AJAX ────────────────────────────────────────────────────────────────────
  */
 
- .ajax_load {
+.ajax_load {
     display: none;
     position: fixed;
     left: 0;
@@ -82,7 +82,6 @@
     margin: auto;
     width: 80px;
     height: 80px;
-
     -webkit-animation: spin 1.2s linear infinite;
     -o-animation: spin 1.2s linear infinite;
     animation: spin 1.2s linear infinite;
@@ -93,40 +92,36 @@
     font-weight: bold;
 }
 
-/*
- * ─── MESSAGE ────────────────────────────────────────────────────────────────────
- */
 
 /*
  * ─── MESSAGE ────────────────────────────────────────────────────────────────────
  */
 
-
- .message {
-  display: block;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #636e72;
-  border-left-width: 50px;
-  border-radius: 4px;
-  color: #636e72;
-  font-size: 1em;
-  font-weight: 100;
+.message {
+    display: block;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #636e72;
+    border-left-width: 50px;
+    border-radius: 4px;
+    color: #636e72;
+    font-size: 1em;
+    font-weight: 100;
 }
 
 .message.info {
-  border-color: var(--color-blue);
-  color: var(--color-blue);
+    border-color: var(--color-blue);
+    color: var(--color-blue);
 }
 
 .message.error {
-  border-color: var(--color-red);
-  color: var(--color-red);
+    border-color: var(--color-red);
+    color: var(--color-red);
 }
 
 .message.success {
-  border-color: var(--color-green);
-  color: var(--color-green);
+    border-color: var(--color-green);
+    color: var(--color-green);
 }
 
 @-webkit-keyframes spin {
