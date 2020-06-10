@@ -52,7 +52,7 @@ class CategoryController
         if (empty($data["id"])) {
             return;
         }
-        
+
         $this->destroyWordsOfThisCategory($data["id"]);
 
         $category = (new Category())->findById($id);

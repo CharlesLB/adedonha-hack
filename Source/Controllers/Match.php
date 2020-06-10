@@ -32,12 +32,12 @@ class Match
         $letter = strtoupper($data["letter"]);
         $categories = $this->findCategories($data["categories"]);
 
-        foreach($categories as $category){
+        foreach ($categories as $category) {
             $answer = $this->answer($letter, $category);
             $answers[] = $answer;
         }
 
-        $callback["table"] = $this->view->render("web/fragments/table", ["answers" => $answers ]);
+        $callback["table"] = $this->view->render("web/fragments/table", ["answers" => $answers]);
         echo json_encode($callback);
     }
 
@@ -47,33 +47,33 @@ class Match
 
     private function validate(array $data): bool
     {
-        if(!$data["categories"]===null){
+        if (!$data["categories"] === null) {
             $this->error = new Exception("Selecione as categorias");
             return false;
         }
 
-        if(!$data["letter"]){
+        if (!$data["letter"]) {
             $this->error = new Exception("Escolha uma letra");
             return false;
         }
 
         $category = new Category;
 
-        foreach($data["categories"] as $name){
+        foreach ($data["categories"] as $name) {
             $category->name = $name;
-            if(!$category->matchValidade()){
+            if (!$category->matchValidade()) {
                 $category->matchValidade();
                 $this->error = new Exception($category->fail);
                 return false;
             }
         }
-            
+
         return true;
     }
 
     private function findCategories(array $data): array
     {
-        foreach ($data as $name){
+        foreach ($data as $name) {
             $category = new Category;
             $categories[] = $category->show($name);
         }
@@ -85,8 +85,8 @@ class Match
     {
         $word = new Word;
         $word = $word->findWordToAnswer($letter, $category->id);
-        
-        $answer= [
+
+        $answer = [
             "category" => $category->name,
             "word" => $word
         ];

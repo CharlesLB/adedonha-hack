@@ -10,7 +10,7 @@ class WordController
 {
     private $view;
 
-    public function __construct($router) 
+    public function __construct($router)
     {
         $this->view = Engine::create(__DIR__ . "/../../Views", "php");
         $this->view->addData(["router" => $router]);
@@ -18,21 +18,21 @@ class WordController
 
     public function show(array $data = null, int $category_id = null,  string $message = null): void
     {
-        if(!$category_id){
+        if (!$category_id) {
             $category = new Category();
             $category = $category->show($data["category_name"]);
             $category_id = $category->id;
             $callback["wordForm"] = $this->view->render("admin/fragments/wordForm", ["category_id" => $category_id]);
         }
 
-        if($message){
+        if ($message) {
             $callback["message"] = $message;
         }
 
         $word = new Word();
         $words = $word->list($category_id);
 
-        $callback["wordList"] = $this->view->render("admin/fragments/wordList", ["words" => $words ]);
+        $callback["wordList"] = $this->view->render("admin/fragments/wordList", ["words" => $words]);
 
         echo json_encode($callback);
     }
@@ -54,14 +54,14 @@ class WordController
         $word->save();
 
         $message = message("Palavra " . $word->name . " cadastrada com sucesso!", "success");
-        
-        if($message){
+
+        if ($message) {
             $callback["message"] = $message;
         }
 
         $words = $word->list($word->id_category);
 
-        $callback["wordList"] = $this->view->render("admin/fragments/wordList", ["words" => $words ]);
+        $callback["wordList"] = $this->view->render("admin/fragments/wordList", ["words" => $words]);
 
         echo json_encode($callback);
     }
@@ -81,5 +81,4 @@ class WordController
         $callback["remove"] = true;
         echo json_encode($callback);
     }
-
 }
