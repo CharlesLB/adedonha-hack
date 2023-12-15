@@ -4,10 +4,6 @@
 </h1>
 
 <p align="center">
-  <a href="https://rocketseat.com.br">
-    <img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%237519C1">
-  </a>
-  <a>
   <img alt="Language" src="https://img.shields.io/badge/language-PHP-brightgreen">
   <img alt="Language" src="https://img.shields.io/badge/language-JQuery-brightgreen">
   <img alt="Language" src="https://img.shields.io/badge/language-Ajax-brightgreen">
