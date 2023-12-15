@@ -1,13 +1,12 @@
 <h1 align="center">
     <br><br>
-    <b> :computer: Adedonha Hack :computer: </b> 
+    <b>  Adedonha Hack  </b> 
 </h1>
 
 <p align="center">
   <img alt="Language" src="https://img.shields.io/badge/language-PHP-brightgreen">
   <img alt="Language" src="https://img.shields.io/badge/language-JQuery-brightgreen">
   <img alt="Language" src="https://img.shields.io/badge/language-Ajax-brightgreen">
-
 </p>
 
 
